@@ -1,0 +1,19 @@
+<%- include index_header.html %>
+<form method="post" action="/edit/<%= post.name %>/<%= post.time.day %>/<%= post.title %>" style=" width: 50%;">
+	<div class="form-group">
+		<label for="inputTitle">Title</label>
+		<input type="text" class="form-control" id="inputTitle" value="<%= post.title %>" readonly="readonly" placeholder="Title" name="title">
+	</div>
+	<div class="form-group">
+		<label for="">Tags</label>
+		<input type="text" class="form-control" name="tag1" value="<%= post.tags[0] %>" readonly="readonly" />
+		<input type="text" class="form-control" name="tag2" value="<%= post.tags[1] %>" readonly="readonly" />
+		<input type="text" class="form-control" name="tag3" value="<%= post.tags[2] %>" readonly="readonly" />
+	</div>
+	<div class="form-group">
+		<label for="textareaArticle">Article</label>
+		<textarea class="form-control" rows="8" id="textareaArticle" name="post"><%= post.post %></textarea>
+	</div>
+	<button type="submit" class="btn btn-default">Submit</button>
+</form>
+<%- include index_footer.html %>

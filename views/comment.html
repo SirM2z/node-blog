@@ -1,0 +1,43 @@
+<br />
+<% post.comments.forEach(function (comment, index) { %>
+  <div style="padding-left:4em">
+    <p><img src="<%= comment.head %>" class="l_head" /><a href="<%= comment.website %>"><%= comment.name %></a>
+    <span class="info"> 回复于 <%= comment.time %></span></p>
+    <p><%- comment.content %></p>
+  </div>
+<% }) %>
+
+<form method="post" action="/u/<%= post.name %>/<%= post.time.day %>/<%= post.title %>" style=" width: 50%;">
+<% if (user) { %>
+	<div class="form-group">
+		<label for="inputTitle">Name</label>
+		<input type="text" class="form-control" id="inputTitle" value="<%= user.name %>" name="name" readonly="readonly" >
+	</div>
+	<div class="form-group">
+		<label for="exampleInputEmail2">Email</label>
+		<input type="email" class="form-control" id="exampleInputEmail2" value="<%= user.email %>" name="email" readonly="readonly" >
+	</div>
+  	<div class="form-group">
+		<label for="inputTitle1">website</label>
+		<input type="text" class="form-control" id="inputTitle1" value="/u/<%= user.name %>" name="website" readonly="readonly" >
+	</div>
+  <% } else { %>
+  	<div class="form-group">
+		<label for="inputTitle2">Name</label>
+		<input type="text" class="form-control" id="inputTitle2" name="name">
+	</div>
+	<div class="form-group">
+		<label for="exampleInputEmail2">Email</label>
+		<input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com" name="email">
+	</div>
+  	<div class="form-group">
+		<label for="inputTitle3">website</label>
+		<input type="text" class="form-control" id="inputTitle3" value="http://" name="website">
+	</div>
+  <% } %>
+	<div class="form-group">
+		<label for="textareaArticle">留言</label>
+		<textarea class="form-control" rows="8" id="textareaArticle" name="content"></textarea>
+	</div>
+	<button type="submit" class="btn btn-default">Submit</button>
+</form>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+</head>
+
+<body>
+  <h1 id="Mark">z</h1>
+  <div id="content">
+    <div id="content-left">
+      <form class="navbar-form navbar-left" role="search" action="/search" method="GET">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="keyword">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <div style="clear:both;"></div>
+      <ul id="content-menu">
+        <li><a title="主页" href="/">HOME</a></li>
+        <li><a title="存档" href="/archive">ARCHIVE</a></li>
+        <li><a title="标签" href="/tags">TAGS</a></li>
+        <li><a title="友情链接" href="/links">LINKS</a></li>
+        <% if(user){ %>
+        <li><a title="上传文件" href="/upload">UPLOAD</a></li>
+        <li><a title="注册" href="/POST">POST</a></li>
+        <li><a title="退出" href="/logout">LOGOUT</a></li>
+        <% }else{ %>
+        <li><a title="登录" href="/login">LOGIN</a></li>
+        <li><a title="注册" href="/reg">REGISTER</a></li>
+        <% } %>
+      </ul>
+    </div>
+    <div id="content-right">
+      <article>
+        <% if (success) { %>
+          <div class="alert alert-success" role="alert"><%= success %></div> 
+        <% } %>
+        <% if (error) { %>
+          <div class="alert alert-danger" role="alert"><%= error %> </div>
+        <% } %>

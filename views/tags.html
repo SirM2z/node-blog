@@ -1,0 +1,9 @@
+<%- include index_header.html %>
+<% var a=['label-default','label-primary','label-success','label-info','label-warning','label-danger'] %>
+<% posts.forEach(function (tag, index) { %>
+  <!--随机出标签样式开始-->
+  <% var tagClass=a[Math.floor(Math.random()*a.length)] %>
+  <!--随机出标签样式结束-->
+  <a class="label <%= tagClass %>" href="/tags/<%= tag %>"><%= tag %></a>
+<% }) %>
+<%- include index_footer.html %>

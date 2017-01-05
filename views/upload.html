@@ -1,0 +1,14 @@
+<%- include index_header.html %>
+<form method='post' action='/upload' enctype='multipart/form-data' >
+  <div class="form-group">
+    <label >File Upload</label>
+    <input type="file" name="file1"><br>
+	<input type="file" name="file2"><br>
+	<input type="file" name="file3"><br>
+	<input type="file" name="file4"><br>
+	<input type="file" name="file5"><br>
+    <p class="help-block">Only support upload five files at same time.</p>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+<%- include index_footer.html %>

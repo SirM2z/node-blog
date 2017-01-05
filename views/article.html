@@ -1,0 +1,25 @@
+<%- include index_header.html %>
+<!--随机出标签样式开始-->
+<% var a=['label-default','label-primary','label-success','label-info','label-warning','label-danger'] %>
+<!--随机出标签样式结束-->
+<p>
+  <% if(user && user.name==post.name){ %>
+  <a type="button" class="btn btn-primary" href="/edit/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">edit</a>
+  <a type="button" class="btn btn-danger" href="/remove/<%= post.name %>/<%= post.time.day %>/<%= post.title %>">remove</a>
+  <% } %>
+</p>
+<p class="info">
+  作者：<a href="/u/<%= post.name %>"><%= post.name %></a> | 
+  日期：<%= post.time.minute %> | 
+  标签：
+  <% post.tags.forEach(function (tag, index) { %>
+    <% if (tag) { %>
+      <% var tagClass=a[Math.floor(Math.random()*a.length)] %>
+      <a class="label <%= tagClass %>" href="/tags/<%= tag %>"><%= tag %></a>
+    <% } %>
+  <% }) %>
+</p>
+<p><%- post.post %></p>
+<p class="info">阅读：<%= post.pv %> | 评论：<%= post.comments.length %></p>
+<%- include comment.html %>
+<%- include index_footer.html %>

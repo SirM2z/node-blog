@@ -1,0 +1,12 @@
+<br />
+<nav>
+  <ul class="pager">
+  <% if (!isFirstPage) { %>
+    <li  class="prepage previous"><a title="上一页" href="?p=<%= page-1 %>">Previous</a></li>
+  <% } %>
+
+  <% if (!isLastPage) { %>
+    <li class="nextpage next"><a title="下一页" href="?p=<%= page+1 %>">Next</a></li>
+  <% } %>
+  </ul>
+</nav>
